@@ -13,7 +13,27 @@ This example shows how to subscribe to slot changes in real-time using gRPC and 
 
 ## 💻 Example
 
-The script `index.ts` opens a gRPC stream to Solana Mainnet and logs new incoming slots using GS Node.
+Below is the actual code used in `index.ts` to subscribe to Solana slot changes using gRPC:
+
+```ts
+import { SubscribeRequest, CommitmentLevel } from "./types"; // Example types assumed
+
+const req: SubscribeRequest = {
+  accounts: {},
+  slots: {
+    incoming_slots: {},
+  },
+  transactions: {},
+  transactionsStatus: {},
+  entry: {},
+  blocks: {},
+  blocksMeta: {},
+  accountsDataSlice: [],
+  commitment: CommitmentLevel.PROCESSED,
+};
+
+console.log("SubscribeRequest ready to send to gRPC stream.");
+```
 
 ## 📦 Install dependencies
 
